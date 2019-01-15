@@ -1,6 +1,7 @@
 package com.example.CollegeManagement.entity;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.*;
 
@@ -11,7 +12,7 @@ public class Professor {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid",strategy = "uuid2")
-     private String professorId;
+    private String professorId;
     private String professorName;
     private String primaryDepartment;
     private String secondaryDepartment;
