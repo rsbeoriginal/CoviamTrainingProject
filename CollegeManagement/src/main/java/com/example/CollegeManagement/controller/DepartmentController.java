@@ -15,10 +15,12 @@ public class DepartmentController {
     DepartmentService departmentService;
 
     @PostMapping("/insert")
-    public void insert(@RequestBody DepartmentDTO departmentDTO){
+    public DepartmentDTO insert(@RequestBody DepartmentDTO departmentDTO){
         Department department = new Department();
         BeanUtils.copyProperties(departmentDTO,department);
-        departmentService.insert(department);
+        DepartmentDTO newDepartmentDTO = new DepartmentDTO();
+        BeanUtils.copyProperties(departmentService.insert(department),newDepartmentDTO);
+        return newDepartmentDTO;
     }
 
     @GetMapping("/findById/{departmentId}")
@@ -29,10 +31,12 @@ public class DepartmentController {
     }
 
     @PutMapping("/update")
-    public void update(@RequestBody DepartmentDTO departmentDTO){
+    public DepartmentDTO update(@RequestBody DepartmentDTO departmentDTO){
         Department department = new Department();
         BeanUtils.copyProperties(departmentDTO,department);
-        departmentService.update(department);
+        DepartmentDTO newDepartmentDTO = new DepartmentDTO();
+        BeanUtils.copyProperties(departmentService.update(department),newDepartmentDTO);
+        return newDepartmentDTO;
     }
 
     @DeleteMapping("/delete/{departmentId}")

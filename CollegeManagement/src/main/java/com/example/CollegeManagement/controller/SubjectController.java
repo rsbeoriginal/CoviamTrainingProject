@@ -15,14 +15,14 @@ public class SubjectController {
     SubjectService subjectService;
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    void insert(@RequestBody SubjectDTO subjectDTO) {
+    Subject insert(@RequestBody SubjectDTO subjectDTO) {
         Subject subject = new Subject();
         //System.out.println(subjectDTO);
         BeanUtils.copyProperties(subjectDTO, subject);
         //Department department=departmentService.findById(subjectDTO.getDepartmentId());
         //subject.setDepartment(department);
         Subject subjectCreated = subjectService.insert(subject);
-
+        return subjectCreated;
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
@@ -42,12 +42,12 @@ public class SubjectController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    void updateRecord(@RequestBody SubjectDTO subjectDTO) {
+    Subject updateRecord(@RequestBody SubjectDTO subjectDTO) {
         Subject subject = new Subject();
         System.out.println(subjectDTO);
         BeanUtils.copyProperties(subjectDTO, subject);
         Subject subjectCreated = subjectService.update(subject);
-
+        return subjectCreated;
     }
 }
 

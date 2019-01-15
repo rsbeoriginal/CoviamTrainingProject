@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.*;
 public class ProfessorController {
     @Autowired
     ProfessorService professorService;
+
     @RequestMapping(value = "/insert",method = RequestMethod.POST)
-    public void insert(@RequestBody ProfessorDTO professorDTO)
+    public ProfessorDTO insert(@RequestBody ProfessorDTO professorDTO)
     {
         Professor professor= new Professor();
         BeanUtils.copyProperties(professorDTO,professor);
-        professorService.insert(professor);
-
+        ProfessorDTO newProfessorDTO = new ProfessorDTO();
+        BeanUtils.copyProperties(professorService.insert(professor),newProfessorDTO);
+        return newProfessorDTO;
     }
     @RequestMapping(value = "/findById",method = RequestMethod.GET)
     public ProfessorDTO findById(@RequestParam String professorId)
@@ -30,17 +32,18 @@ public class ProfessorController {
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.PUT)
-    public void update(@RequestBody ProfessorDTO professorDTO)
+    public ProfessorDTO update(@RequestBody ProfessorDTO professorDTO)
     {
         Professor professor= new Professor();
         BeanUtils.copyProperties(professorDTO, professor);
-        professorService.update(professor);
+        ProfessorDTO newProfessorDTO = new ProfessorDTO();
+        BeanUtils.copyProperties(professorService.update(professor),newProfessorDTO);
+        return newProfessorDTO;
     }
 
     @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
     public void delete(@RequestParam String professorId)
     {
-
         professorService.delete(professorId);
     }
 

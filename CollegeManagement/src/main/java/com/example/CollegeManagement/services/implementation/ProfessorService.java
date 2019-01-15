@@ -4,8 +4,8 @@ import com.example.CollegeManagement.dto.ProfessorDTO;
 import com.example.CollegeManagement.entity.Professor;
 
 public interface ProfessorService {
-    public void insert(Professor employee);
-    public Professor findById(String employee_id);
-    public void update(Professor employee);
-    public void delete(String employee_id);
+    public Professor insert(Professor professor);
+    public Professor findById(String professorId);
+    public Professor update(Professor professor);
+    public void delete(String professorId);
 }
