@@ -42,7 +42,7 @@ public class SubjectController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    void updateRecord(SubjectDTO subjectDTO) {
+    void updateRecord(@RequestBody SubjectDTO subjectDTO) {
         Subject subject = new Subject();
         System.out.println(subjectDTO);
         BeanUtils.copyProperties(subjectDTO, subject);

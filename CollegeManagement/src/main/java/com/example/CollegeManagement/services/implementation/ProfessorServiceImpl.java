@@ -15,8 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProfessorServiceImpl implements ProfessorService {
     @Autowired
     ProfessorRepository professorRepository;
-    @Autowired
-    ProfessorService professorService;
     @Override
     @Transactional(readOnly = false)
     public void insert(Professor professor) {
@@ -27,7 +25,7 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     @Override
     public Professor findById(String professorId) {
-        return professorService.findById(professorId);
+        return professorRepository.findOne(professorId);
 
     }
 
