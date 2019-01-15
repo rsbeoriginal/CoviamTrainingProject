@@ -39,8 +39,8 @@ public class SemesterServicesImpl implements SemesterServices {
     }
 
     @Override
-    public void update(Semester semester) {
-        remp.save(semester);
+    public Semester update(Semester semester) {
+        return remp.save(semester);
     }
 
     @Override @Transactional(readOnly = true)
