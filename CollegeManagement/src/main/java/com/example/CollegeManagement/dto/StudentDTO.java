@@ -1,21 +1,6 @@
-package com.example.CollegeManagement.entity;
+package com.example.CollegeManagement.dto;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.List;
-
-@Entity
-@Table(name = Student.TABLE_NAME)
-public class Student {
-    public static final String TABLE_NAME = "Student";
-
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+public class StudentDTO {
     private String studentId;
     private String studentName;
     private String departmentId;
