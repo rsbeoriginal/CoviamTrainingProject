@@ -10,8 +10,8 @@ import javax.persistence.*;
 public class Professor {
     public static final String TABLE_NAME="PROFESSOR";
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid",strategy = "uuid2")
+//    @GeneratedValue(generator = "uuid")
+//    @GenericGenerator(name="uuid",strategy = "uuid2")
     private String professorId;
     private String professorName;
     private String primaryDepartment;

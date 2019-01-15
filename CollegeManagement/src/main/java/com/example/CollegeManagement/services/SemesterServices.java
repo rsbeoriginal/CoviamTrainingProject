@@ -8,4 +8,6 @@ public interface SemesterServices
     void delete(String id);
     void update(Semester semester);
     Semester findById(String id);
+
+    Integer getCurrentSemesterCGPA(String studentId);
 }

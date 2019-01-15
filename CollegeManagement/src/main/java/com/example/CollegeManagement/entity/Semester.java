@@ -17,6 +17,7 @@ public class Semester {
     private String semesterId;
 
     private int semesterNo;
+
     private String studentId;
     private String subjectId;
     private Integer marks;

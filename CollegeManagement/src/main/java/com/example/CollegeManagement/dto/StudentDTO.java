@@ -1,10 +1,14 @@
 package com.example.CollegeManagement.dto;
 
+import com.example.CollegeManagement.entity.Department;
+
 public class StudentDTO {
     private String studentId;
     private String studentName;
-    private String departmentId;
+//    private String departmentId;
     private int currentSemester;
+
+    private Department department;
 
     public String getStudentId() {
         return studentId;
@@ -22,12 +26,21 @@ public class StudentDTO {
         this.studentName = studentName;
     }
 
-    public String getDepartmentId() {
-        return departmentId;
+//    public String getDepartmentId() {
+//        return departmentId;
+//    }
+//
+//    public void setDepartmentId(String departmentId) {
+//        this.departmentId = departmentId;
+//    }
+
+
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public int getCurrentSemester() {

@@ -1,10 +1,15 @@
 package com.example.CollegeManagement.dto;
 
+import com.example.CollegeManagement.entity.Department;
+import com.example.CollegeManagement.entity.Professor;
+
 public class SubjectDTO {
     public String subjectId;
     public String subjectName;
-    public String departmentId;
-    public String professorId;
+//    public String departmentId;
+//    public String professorId;
+    Department department;
+    Professor professor;
 
     public String getSubjectId() {
         return subjectId;
@@ -22,29 +27,46 @@ public class SubjectDTO {
         this.subjectName = subjectName;
     }
 
-    public String getDepartmentId() {
-        return departmentId;
+//    public String getDepartmentId() {
+//        return departmentId;
+//    }
+//
+//    public void setDepartmentId(String departmentId) {
+//        this.departmentId = departmentId;
+//    }
+//
+//    public String getProfessorId() {
+//        return professorId;
+//    }
+//
+//    public void setProfessorId(String professorId) {
+//        this.professorId = professorId;
+//    }
+
+//    @Override
+//    public String toString() {
+//        return "SubjectDTO{" +
+//                "subjectId='" + subjectId + '\'' +
+//                ", subjectName='" + subjectName + '\'' +
+//                ", departmentId='" + departmentId + '\'' +
+//                ", professorId='" + professorId + '\'' +
+//                '}';
+//    }
+
+
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
-    public String getProfessorId() {
-        return professorId;
+    public Professor getProfessor() {
+        return professor;
     }
 
-    public void setProfessorId(String professorId) {
-        this.professorId = professorId;
-    }
-
-    @Override
-    public String toString() {
-        return "SubjectDTO{" +
-                "subjectId='" + subjectId + '\'' +
-                ", subjectName='" + subjectName + '\'' +
-                ", departmentId='" + departmentId + '\'' +
-                ", professorId='" + professorId + '\'' +
-                '}';
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 }
