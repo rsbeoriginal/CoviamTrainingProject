@@ -1,28 +1,10 @@
-package com.example.CollegeManagement.entity;
+package com.example.CollegeManagement.dto;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name=Professor.TABLE_NAME)
-public class Professor {
-    public static final String TABLE_NAME="PROFESSOR";
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid",strategy = "uuid2")
-     private String professorId;
+public class ProfessorDTO {
+    private String professorId;
     private String professorName;
     private String primaryDepartment;
     private String secondaryDepartment;
-
-    public String getSecondaryDepartment() {
-        return secondaryDepartment;
-    }
-
-    public void setSecondaryDepartment(String secondaryDepartment) {
-        this.secondaryDepartment = secondaryDepartment;
-    }
 
     public String getProfessorId() {
         return professorId;
@@ -48,9 +30,17 @@ public class Professor {
         this.primaryDepartment = primaryDepartment;
     }
 
+    public String getSecondaryDepartment() {
+        return secondaryDepartment;
+    }
+
+    public void setSecondaryDepartment(String secondaryDepartment) {
+        this.secondaryDepartment = secondaryDepartment;
+    }
+
     @Override
     public String toString() {
-        return "Professor{" +
+        return "ProfessorDTO{" +
                 "professorId='" + professorId + '\'' +
                 ", professorName='" + professorName + '\'' +
                 ", primaryDepartment='" + primaryDepartment + '\'' +
