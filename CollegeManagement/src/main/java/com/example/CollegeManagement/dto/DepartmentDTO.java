@@ -1,21 +1,7 @@
-package com.example.CollegeManagement.entity;
+package com.example.CollegeManagement.dto;
 
-import org.hibernate.annotations.GenericGenerator;
+public class DepartmentDTO {
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = Department.TABLE_NAME)
-public class Department {
-
-    public static final String TABLE_NAME="DEPARTMENT";
-
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid",strategy = "uuid2")
     String departmentId;
     String departmentName;
 
@@ -37,7 +23,7 @@ public class Department {
 
     @Override
     public String toString() {
-        return "Department{" +
+        return "DepartmentDTO{" +
                 "departmentId='" + departmentId + '\'' +
                 ", departmentName='" + departmentName + '\'' +
                 '}';
