@@ -6,6 +6,6 @@ public interface SemesterServices
 {
     Semester insert(Semester semester);
     void delete(String id);
-    void update(Semester semester);
+    Semester update(Semester semester);
     Semester findById(String id);
 }

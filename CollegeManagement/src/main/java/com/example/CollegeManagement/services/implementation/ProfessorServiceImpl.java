@@ -1,10 +1,7 @@
 package com.example.CollegeManagement.services.implementation;
 
-import com.example.CollegeManagement.dto.ProfessorDTO;
 import com.example.CollegeManagement.entity.Professor;
 import com.example.CollegeManagement.repository.ProfessorRepository;
-import com.example.CollegeManagement.services.implementation.ProfessorService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -17,10 +14,8 @@ public class ProfessorServiceImpl implements ProfessorService {
     ProfessorRepository professorRepository;
     @Override
     @Transactional(readOnly = false)
-    public void insert(Professor professor) {
-        //Professor professor1=professorRepository.findOne(professor.getProfessorId());
-//        employee.setDepartment(department.get());
-        professorRepository.save(professor);
+    public Professor insert(Professor professor) {
+        return professorRepository.save(professor);
     }
 
     @Override
@@ -30,9 +25,8 @@ public class ProfessorServiceImpl implements ProfessorService {
     }
 
     @Override
-
-    public void update(Professor professor) {
-        professorRepository.save(professor);
+    public Professor update(Professor professor) {
+        return professorRepository.save(professor);
     }
 
     @Override

@@ -14,19 +14,22 @@ public class SemsterController {
     SemesterServices semesterService ;
 
     @RequestMapping(value="/update",method=RequestMethod.PUT)
-    public void update(@RequestBody SemesterDTO semesterdto)
+    public SemesterDTO update(@RequestBody SemesterDTO semesterdto)
     {
         Semester semester=new Semester();
         BeanUtils.copyProperties(semesterdto,semester);
-        semesterService.update(semester);
+        SemesterDTO newSemesterDTO = new SemesterDTO();
+        BeanUtils.copyProperties(semesterService.update(semester),newSemesterDTO);
+        return newSemesterDTO;
     }
     @RequestMapping(value ="/insert",method=RequestMethod.POST)
-    public Semester insert(@RequestBody SemesterDTO semesterdto)
+    public SemesterDTO insert(@RequestBody SemesterDTO semesterdto)
     {
         Semester semester=new Semester();
         BeanUtils.copyProperties(semesterdto,semester);
-        return semesterService.insert(semester);
-
+        SemesterDTO newSemesterDTO = new SemesterDTO();
+        BeanUtils.copyProperties(semesterService.insert(semester),newSemesterDTO);
+        return newSemesterDTO;
     }
     @RequestMapping(value ="/findById",method=RequestMethod.GET)
     public SemesterDTO findById(@RequestParam String id)
