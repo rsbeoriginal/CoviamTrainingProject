@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class SemesterServicesImpl implements SemesterServices {
 
     @Autowired
-    private SemesterRepository remp;
+    private SemesterRepository semesterRepository;
 
     @Autowired
     private StudentRepository studentRepository;
@@ -27,7 +27,7 @@ public class SemesterServicesImpl implements SemesterServices {
     @Transactional(readOnly = false)
     public Semester insert(Semester semester) {
 
-        remp.save(semester);
+        semesterRepository.save(semester);
         return semester;
 
     }
@@ -35,25 +35,30 @@ public class SemesterServicesImpl implements SemesterServices {
     @Override
     public void delete(String id)
     {
-        remp.delete(id);
+        semesterRepository.delete(id);
     }
 
     @Override
     public Semester update(Semester semester) {
-        return remp.save(semester);
+        return semesterRepository.save(semester);
     }
 
     @Override @Transactional(readOnly = true)
     public Semester findById(String id)
     {
-        return remp.findOne(id);
+        return semesterRepository.findOne(id);
     }
 
     @Override
-    public Integer getCurrentSemesterCGPA(String studentId) {
+    public Double getCurrentSemesterCGPA(String studentId) {
         Student student = studentRepository.findOne(studentId);
 
-        return remp.semesterMarksBySemester(studentId,student.getCurrentSemester());
+        return semesterRepository.semesterMarksBySemester(studentId,student.getCurrentSemester());
+    }
+
+    @Override
+    public Double getCGPA(String studentId) {
+        return semesterRepository.getCGPA(studentId);
     }
 
 }

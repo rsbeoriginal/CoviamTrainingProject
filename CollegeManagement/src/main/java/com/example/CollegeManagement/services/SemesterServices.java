@@ -9,5 +9,7 @@ public interface SemesterServices
     Semester update(Semester semester);
     Semester findById(String id);
 
-    Integer getCurrentSemesterCGPA(String studentId);
+    Double getCurrentSemesterCGPA(String studentId);
+
+    Double getCGPA(String studentId);
 }

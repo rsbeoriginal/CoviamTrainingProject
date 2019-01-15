@@ -42,7 +42,12 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/getCurrentSemesterMarks/{studentId}",method = RequestMethod.GET)
-    public Integer getCurrentSemesterMarks(@PathVariable("studentId") String studentId){
+    public Double getCurrentSemesterMarks(@PathVariable("studentId") String studentId){
         return semesterServices.getCurrentSemesterCGPA(studentId);
+    }
+
+    @RequestMapping(value = "/getCGPA/{studentId}",method = RequestMethod.GET)
+    public Double getCGPA(@PathVariable("studentId") String studentId){
+        return semesterServices.getCGPA(studentId);
     }
 }
