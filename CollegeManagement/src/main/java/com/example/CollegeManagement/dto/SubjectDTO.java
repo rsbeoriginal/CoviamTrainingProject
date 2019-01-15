@@ -1,10 +1,14 @@
 package com.example.CollegeManagement.dto;
 
+
+import com.example.CollegeManagement.entity.Professor;
+
 public class SubjectDTO {
     public String subjectId;
     public String subjectName;
     public String departmentId;
-    public String professorId;
+    //public String professorId;
+    private Professor professor;
 
     public String getSubjectId() {
         return subjectId;
@@ -30,21 +34,28 @@ public class SubjectDTO {
         this.departmentId = departmentId;
     }
 
-    public String getProfessorId() {
-        return professorId;
+    public Professor getProfessor() {
+        return professor;
     }
 
-    public void setProfessorId(String professorId) {
-        this.professorId = professorId;
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
-
-    @Override
-    public String toString() {
-        return "SubjectDTO{" +
-                "subjectId='" + subjectId + '\'' +
-                ", subjectName='" + subjectName + '\'' +
-                ", departmentId='" + departmentId + '\'' +
-                ", professorId='" + professorId + '\'' +
-                '}';
-    }
+    //    public String getProfessorId() {
+//        return professorId;
+//    }
+//
+//    public void setProfessorId(String professorId) {
+//        this.professorId = professorId;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "SubjectDTO{" +
+//                "subjectId='" + subjectId + '\'' +
+//                ", subjectName='" + subjectName + '\'' +
+//                ", departmentId='" + departmentId + '\'' +
+//                ", professorId='" + professorId + '\'' +
+//                '}';
+//    }
 }

@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name=Professor.TABLE_NAME)
@@ -16,6 +18,25 @@ public class Professor {
     private String professorName;
     private String primaryDepartment;
     private String secondaryDepartment;
+
+    @OneToMany(
+            mappedBy = "professor",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Subject> subjectArrayList = new ArrayList<>();
+
+    public static String getTableName() {
+        return TABLE_NAME;
+    }
+
+    public List<Subject> getSubjectArrayList() {
+        return subjectArrayList;
+    }
+
+    public void setSubjectArrayList(List<Subject> subjectArrayList) {
+        this.subjectArrayList = subjectArrayList;
+    }
 
     public String getSecondaryDepartment() {
         return secondaryDepartment;

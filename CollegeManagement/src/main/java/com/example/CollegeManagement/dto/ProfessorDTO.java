@@ -1,10 +1,24 @@
 package com.example.CollegeManagement.dto;
 
+import com.example.CollegeManagement.entity.Subject;
+
+import java.util.List;
+
 public class ProfessorDTO {
     private String professorId;
     private String professorName;
     private String primaryDepartment;
     private String secondaryDepartment;
+
+    private List<Subject> subjectArrayList;
+
+    public List<Subject> getSubjectArrayList() {
+        return subjectArrayList;
+    }
+
+    public void setSubjectArrayList(List<Subject> subjectArrayList) {
+        this.subjectArrayList = subjectArrayList;
+    }
 
     public String getProfessorId() {
         return professorId;
