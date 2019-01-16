@@ -10,4 +10,6 @@ public interface StudentServices {
     Student update(Student student);
 
     Student findById(String id);
+
+    Iterable<Student> findAll();
 }

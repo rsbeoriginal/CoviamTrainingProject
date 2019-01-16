@@ -65,4 +65,9 @@ public class ProfessorServiceImpl implements ProfessorService {
         return rating;
     }
 
+    @Override
+    public Iterable<Professor> findAll() {
+        return professorRepository.findAll();
+    }
+
 }

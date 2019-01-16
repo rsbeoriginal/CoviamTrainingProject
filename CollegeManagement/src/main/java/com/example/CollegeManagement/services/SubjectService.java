@@ -10,4 +10,6 @@ public interface SubjectService {
     Subject update(Subject subject);
 
     Subject findById(String id);
+
+    Iterable<Subject> findAll();
 }

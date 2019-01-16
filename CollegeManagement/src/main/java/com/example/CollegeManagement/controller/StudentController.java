@@ -50,4 +50,9 @@ public class StudentController {
     public Double getCGPA(@PathVariable("studentId") String studentId) {
         return semesterServices.getCGPA(studentId);
     }
+
+    @RequestMapping(value = "/getAllStudents",method = RequestMethod.GET)
+    public Iterable<Student> getAllStudents(){
+        return studentServices.findAll();
+    }
 }

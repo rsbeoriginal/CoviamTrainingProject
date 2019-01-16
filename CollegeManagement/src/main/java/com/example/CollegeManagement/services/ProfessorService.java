@@ -13,4 +13,6 @@ public interface ProfessorService {
     void delete(String professorId);
 
     Double getRating(String professorId);
+
+    Iterable<Professor> findAll();
 }

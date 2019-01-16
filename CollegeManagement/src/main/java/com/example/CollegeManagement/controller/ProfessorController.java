@@ -48,5 +48,8 @@ public class ProfessorController {
         return professorService.getRating(professorId);
     }
 
-
+    @RequestMapping(value = "/getAllProfessors",method = RequestMethod.GET)
+    public Iterable<Professor> getAllProfessors(){
+        return professorService.findAll();
+    }
 }

@@ -36,4 +36,9 @@ public class SubjectServiceImpl implements SubjectService {
     public Subject findById(String id) {
         return subjectRepository.findOne(id);
     }
+
+    @Override
+    public Iterable<Subject> findAll() {
+        return subjectRepository.findAll();
+    }
 }

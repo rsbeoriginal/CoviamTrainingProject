@@ -49,5 +49,10 @@ public class SubjectController {
         Subject subjectCreated = subjectService.update(subject);
         return subjectCreated;
     }
+
+    @RequestMapping(value = "/getAllSubjects",method = RequestMethod.GET)
+    public Iterable<Subject> getAllSubjects(){
+        return subjectService.findAll();
+    }
 }
 

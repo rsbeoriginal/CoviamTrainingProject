@@ -35,4 +35,9 @@ public class StudentServicesImpl implements StudentServices {
     public Student findById(String id) {
         return studentRepository.findOne(id);
     }
+
+    @Override
+    public Iterable<Student> findAll() {
+        return studentRepository.findAll();
+    }
 }
