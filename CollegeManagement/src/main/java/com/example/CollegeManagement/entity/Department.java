@@ -14,8 +14,8 @@ public class Department {
     public static final String TABLE_NAME="DEPARTMENT";
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid",strategy = "uuid2")
+//    @GeneratedValue(generator = "uuid")
+//    @GenericGenerator(name="uuid",strategy = "uuid2")
     String departmentId;
     String departmentName;
 

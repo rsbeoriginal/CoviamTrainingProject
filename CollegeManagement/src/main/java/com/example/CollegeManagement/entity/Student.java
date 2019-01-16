@@ -2,10 +2,7 @@ package com.example.CollegeManagement.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,12 +11,17 @@ public class Student {
     public static final String TABLE_NAME = "Student";
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+//    @GeneratedValue(generator = "uuid")
+//    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String studentId;
     private String studentName;
-    private String departmentId;
+//    private String departmentId;
     private int currentSemester;
+
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    Department department;
 
     public String getStudentId() {
         return studentId;
@@ -37,13 +39,13 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public String getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
+//    public String getDepartmentId() {
+//        return departmentId;
+//    }
+//
+//    public void setDepartmentId(String departmentId) {
+//        this.departmentId = departmentId;
+//    }
 
     public int getCurrentSemester() {
         return currentSemester;
@@ -51,5 +53,17 @@ public class Student {
 
     public void setCurrentSemester(int currentSemester) {
         this.currentSemester = currentSemester;
+    }
+
+    public static String getTableName() {
+        return TABLE_NAME;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
