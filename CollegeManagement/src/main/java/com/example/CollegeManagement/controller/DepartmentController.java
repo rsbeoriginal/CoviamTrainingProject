@@ -15,32 +15,32 @@ public class DepartmentController {
     DepartmentService departmentService;
 
     @PostMapping("/insert")
-    public DepartmentDTO insert(@RequestBody DepartmentDTO departmentDTO){
+    public DepartmentDTO insert(@RequestBody DepartmentDTO departmentDTO) {
         Department department = new Department();
-        BeanUtils.copyProperties(departmentDTO,department);
+        BeanUtils.copyProperties(departmentDTO, department);
         DepartmentDTO newDepartmentDTO = new DepartmentDTO();
-        BeanUtils.copyProperties(departmentService.insert(department),newDepartmentDTO);
+        BeanUtils.copyProperties(departmentService.insert(department), newDepartmentDTO);
         return newDepartmentDTO;
     }
 
     @GetMapping("/findById/{departmentId}")
-    public DepartmentDTO findById(@PathVariable("departmentId") String departmentId){
+    public DepartmentDTO findById(@PathVariable("departmentId") String departmentId) {
         DepartmentDTO departmentDTO = new DepartmentDTO();
-        BeanUtils.copyProperties(departmentService.findById(departmentId),departmentDTO);
-        return  departmentDTO;
+        BeanUtils.copyProperties(departmentService.findById(departmentId), departmentDTO);
+        return departmentDTO;
     }
 
     @PutMapping("/update")
-    public DepartmentDTO update(@RequestBody DepartmentDTO departmentDTO){
+    public DepartmentDTO update(@RequestBody DepartmentDTO departmentDTO) {
         Department department = new Department();
-        BeanUtils.copyProperties(departmentDTO,department);
+        BeanUtils.copyProperties(departmentDTO, department);
         DepartmentDTO newDepartmentDTO = new DepartmentDTO();
-        BeanUtils.copyProperties(departmentService.update(department),newDepartmentDTO);
+        BeanUtils.copyProperties(departmentService.update(department), newDepartmentDTO);
         return newDepartmentDTO;
     }
 
     @DeleteMapping("/delete/{departmentId}")
-    public void delete(@PathVariable("departmentId") String departmentId){
+    public void delete(@PathVariable("departmentId") String departmentId) {
         departmentService.delete(departmentId);
     }
 }

@@ -5,30 +5,25 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name=Subject.TABLE_NAME)
+@Table(name = Subject.TABLE_NAME)
 public class Subject {
 
-    public static final String TABLE_NAME="SUBJECT";
-
-
+    public static final String TABLE_NAME = "SUBJECT";
 
     @Id
 //    @GeneratedValue(generator = "uuid")
 //    @GenericGenerator(name="uuid",strategy = "uuid2")
-    public String subjectId;
-    public String subjectName;
-//    public String departmentId;
-//    public String professorId;
+    private String subjectId;
+    private String subjectName;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    Department department;
+    private Department department;
 
 
     @ManyToOne
     @JoinColumn(name = "professor_id")
-    Professor professor;
-
+    private Professor professor;
 
     public String getSubjectId() {
         return subjectId;
@@ -76,29 +71,4 @@ public class Subject {
                 '}';
     }
 
-    //    public String getDepartmentId() {
-//        return departmentId;
-//    }
-//
-//    public void setDepartmentId(String departmentId) {
-//        this.departmentId = departmentId;
-//    }
-//
-//    public String getProfessorId() {
-//        return professorId;
-//    }
-//
-//    public void setProfessorId(String professorId) {
-//        this.professorId = professorId;
-//    }
-
-//    @Override
-//    public String toString() {
-//        return "Subject{" +
-//                "subjectId='" + subjectId + '\'' +
-//                ", subjectName='" + subjectName + '\'' +
-//                ", departmentId='" + departmentId + '\'' +
-//                ", professorId='" + professorId + '\'' +
-//                '}';
-//    }
 }

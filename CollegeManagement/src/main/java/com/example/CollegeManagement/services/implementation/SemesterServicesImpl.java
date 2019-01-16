@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-@Transactional(readOnly = false,propagation = Propagation.REQUIRES_NEW)
+@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 public class SemesterServicesImpl implements SemesterServices {
 
     @Autowired
@@ -20,7 +20,6 @@ public class SemesterServicesImpl implements SemesterServices {
 
     @Autowired
     private StudentRepository studentRepository;
-
 
 
     @Override
@@ -33,8 +32,7 @@ public class SemesterServicesImpl implements SemesterServices {
     }
 
     @Override
-    public void delete(String id)
-    {
+    public void delete(String id) {
         semesterRepository.delete(id);
     }
 
@@ -43,9 +41,9 @@ public class SemesterServicesImpl implements SemesterServices {
         return semesterRepository.save(semester);
     }
 
-    @Override @Transactional(readOnly = true)
-    public Semester findById(String id)
-    {
+    @Override
+    @Transactional(readOnly = true)
+    public Semester findById(String id) {
         return semesterRepository.findOne(id);
     }
 
@@ -53,7 +51,7 @@ public class SemesterServicesImpl implements SemesterServices {
     public Double getCurrentSemesterCGPA(String studentId) {
         Student student = studentRepository.findOne(studentId);
 
-        return semesterRepository.getCGPABySemester(studentId,student.getCurrentSemester());
+        return semesterRepository.getCGPABySemester(studentId, student.getCurrentSemester());
     }
 
     @Override

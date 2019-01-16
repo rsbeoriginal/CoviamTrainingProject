@@ -15,13 +15,12 @@ public class Student {
 //    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String studentId;
     private String studentName;
-//    private String departmentId;
     private int currentSemester;
 
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    Department department;
+    private Department department;
 
     public String getStudentId() {
         return studentId;
@@ -38,14 +37,6 @@ public class Student {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
-
-//    public String getDepartmentId() {
-//        return departmentId;
-//    }
-//
-//    public void setDepartmentId(String departmentId) {
-//        this.departmentId = departmentId;
-//    }
 
     public int getCurrentSemester() {
         return currentSemester;

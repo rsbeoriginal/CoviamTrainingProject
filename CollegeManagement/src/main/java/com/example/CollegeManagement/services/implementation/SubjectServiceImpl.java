@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(readOnly = false,propagation = Propagation.REQUIRES_NEW)
+@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 public class SubjectServiceImpl implements SubjectService {
 
     @Autowired
@@ -27,7 +27,6 @@ public class SubjectServiceImpl implements SubjectService {
 
     }
 
-    //TODO:update not working
     @Override
     public Subject update(Subject subject) {
         return subjectRepository.save(subject);

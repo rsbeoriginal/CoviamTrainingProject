@@ -2,8 +2,8 @@ package com.example.CollegeManagement.dto;
 
 public class DepartmentDTO {
 
-    String departmentId;
-    String departmentName;
+    private String departmentId;
+    private String departmentName;
 
     public String getDepartmentId() {
         return departmentId;

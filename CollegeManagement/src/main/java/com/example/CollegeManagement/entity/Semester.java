@@ -8,18 +8,15 @@ import javax.persistence.*;
 @Table(name = Semester.TABLE_NAME)
 public class Semester {
 
-    public static final String TABLE_NAME="SEMESTER";
+    public static final String TABLE_NAME = "SEMESTER";
 
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid",strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "ID")
     private String semesterId;
 
     private int semesterNo;
-
-//    private String studentId;
-//    private String subjectId;
 
     private Integer marks;
 
@@ -46,22 +43,6 @@ public class Semester {
     public void setSemesterNo(int semesterNo) {
         this.semesterNo = semesterNo;
     }
-
-//    public String getStudentId() {
-//        return studentId;
-//    }
-//
-//    public void setStudentId(String studentId) {
-//        this.studentId = studentId;
-//    }
-//
-//    public String getSubjectId() {
-//        return subjectId;
-//    }
-//
-//    public void setSubjectId(String subjectId) {
-//        this.subjectId = subjectId;
-//    }
 
     public Integer getMarks() {
         return marks;

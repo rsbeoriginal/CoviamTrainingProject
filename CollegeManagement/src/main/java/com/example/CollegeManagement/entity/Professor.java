@@ -7,16 +7,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name=Professor.TABLE_NAME)
+@Table(name = Professor.TABLE_NAME)
 public class Professor {
-    public static final String TABLE_NAME="PROFESSOR";
+    public static final String TABLE_NAME = "PROFESSOR";
     @Id
 //    @GeneratedValue(generator = "uuid")
 //    @GenericGenerator(name="uuid",strategy = "uuid2")
     private String professorId;
     private String professorName;
-//    private String primaryDepartment;
-//    private String secondaryDepartment;
 
     @NotNull
     @ManyToOne
@@ -26,14 +24,6 @@ public class Professor {
     @ManyToOne
     @JoinColumn(name = "secondary_department_id")
     Department secondaryDepartment;
-
-//    public String getSecondaryDepartment() {
-//        return secondaryDepartment;
-//    }
-//
-//    public void setSecondaryDepartment(String secondaryDepartment) {
-//        this.secondaryDepartment = secondaryDepartment;
-//    }
 
     public String getProfessorId() {
         return professorId;
@@ -50,15 +40,6 @@ public class Professor {
     public void setProfessorName(String professorName) {
         this.professorName = professorName;
     }
-
-//    public String getPrimaryDepartment() {
-//        return primaryDepartment;
-//    }
-//
-//    public void setPrimaryDepartment(String primaryDepartment) {
-//        this.primaryDepartment = primaryDepartment;
-//    }
-
 
     public static String getTableName() {
         return TABLE_NAME;

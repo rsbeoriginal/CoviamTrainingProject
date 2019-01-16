@@ -11,35 +11,35 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/semester")
 public class SemsterController {
     @Autowired
-    SemesterServices semesterService ;
+    SemesterServices semesterService;
 
-    @RequestMapping(value="/update",method=RequestMethod.PUT)
-    public SemesterDTO update(@RequestBody SemesterDTO semesterdto)
-    {
-        Semester semester=new Semester();
-        BeanUtils.copyProperties(semesterdto,semester);
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public SemesterDTO update(@RequestBody SemesterDTO semesterdto) {
+        Semester semester = new Semester();
+        BeanUtils.copyProperties(semesterdto, semester);
         SemesterDTO newSemesterDTO = new SemesterDTO();
-        BeanUtils.copyProperties(semesterService.update(semester),newSemesterDTO);
+        BeanUtils.copyProperties(semesterService.update(semester), newSemesterDTO);
         return newSemesterDTO;
     }
-    @RequestMapping(value ="/insert",method=RequestMethod.POST)
-    public SemesterDTO insert(@RequestBody SemesterDTO semesterdto)
-    {
-        Semester semester=new Semester();
-        BeanUtils.copyProperties(semesterdto,semester);
+
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public SemesterDTO insert(@RequestBody SemesterDTO semesterdto) {
+        Semester semester = new Semester();
+        BeanUtils.copyProperties(semesterdto, semester);
         SemesterDTO newSemesterDTO = new SemesterDTO();
-        BeanUtils.copyProperties(semesterService.insert(semester),newSemesterDTO);
+        BeanUtils.copyProperties(semesterService.insert(semester), newSemesterDTO);
         return newSemesterDTO;
     }
-    @RequestMapping(value ="/findById",method=RequestMethod.GET)
-    public SemesterDTO findById(@RequestParam String id)
-    {
+
+    @RequestMapping(value = "/findById", method = RequestMethod.GET)
+    public SemesterDTO findById(@RequestParam String id) {
         Semester semester = semesterService.findById(id);
         SemesterDTO semesterdto = new SemesterDTO();
         BeanUtils.copyProperties(semester, semesterdto);
         return semesterdto;
     }
-    @RequestMapping(value ="/delete",method=RequestMethod.DELETE)
+
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void delete(@RequestParam String id) {
         semesterService.delete(id);
     }

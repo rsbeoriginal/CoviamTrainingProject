@@ -5,7 +5,6 @@ import com.example.CollegeManagement.entity.Department;
 public class StudentDTO {
     private String studentId;
     private String studentName;
-//    private String departmentId;
     private int currentSemester;
 
     private Department department;
@@ -25,15 +24,6 @@ public class StudentDTO {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
-
-//    public String getDepartmentId() {
-//        return departmentId;
-//    }
-//
-//    public void setDepartmentId(String departmentId) {
-//        this.departmentId = departmentId;
-//    }
-
 
     public Department getDepartment() {
         return department;

@@ -3,7 +3,9 @@ package com.example.CollegeManagement.repository;
 import com.example.CollegeManagement.entity.Semester;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface SemesterRepository extends CrudRepository<Semester,String>{
 
     @Query(value = "SELECT AVG(marks) FROM Semester WHERE student_id=?1 AND semesterNo=?2")

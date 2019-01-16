@@ -5,6 +5,7 @@ import com.example.CollegeManagement.entity.Subject;
 import com.example.CollegeManagement.repository.ProfessorRepository;
 import com.example.CollegeManagement.repository.SemesterRepository;
 import com.example.CollegeManagement.repository.SubjectRepository;
+import com.example.CollegeManagement.services.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
