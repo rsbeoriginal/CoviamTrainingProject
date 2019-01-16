@@ -53,7 +53,7 @@ public class SemesterServicesImpl implements SemesterServices {
     public Double getCurrentSemesterCGPA(String studentId) {
         Student student = studentRepository.findOne(studentId);
 
-        return semesterRepository.semesterMarksBySemester(studentId,student.getCurrentSemester());
+        return semesterRepository.getCGPABySemester(studentId,student.getCurrentSemester());
     }
 
     @Override

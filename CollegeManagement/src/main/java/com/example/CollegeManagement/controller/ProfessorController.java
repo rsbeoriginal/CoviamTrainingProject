@@ -27,7 +27,6 @@ public class ProfessorController {
     {
         ProfessorDTO professordto=new ProfessorDTO();
         BeanUtils.copyProperties(professorService.findById(professorId),professordto);
-        System.out.println(professordto);
         return professordto;
     }
 
@@ -47,7 +46,10 @@ public class ProfessorController {
         professorService.delete(professorId);
     }
 
-
+    @RequestMapping(value="/rating/{professorId}",method = RequestMethod.GET)
+    public Double getRating(@PathVariable("professorId") String professorId){
+        return professorService.getRating(professorId);
+    }
 
 
 }
