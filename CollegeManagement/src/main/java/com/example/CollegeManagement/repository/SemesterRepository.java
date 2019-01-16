@@ -6,15 +6,15 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface SemesterRepository extends CrudRepository<Semester,String>{
 
-    @Query(value = "SELECT AVG(S.marks) FROM Semester S WHERE S.studentId=?1 AND S.semesterNo=?2")
+    @Query(value = "SELECT AVG(marks) FROM Semester WHERE student_id=?1 AND semesterNo=?2")
     Double getCGPABySemester(String studentId, int semesterNo);
 
-    @Query(value = "SELECT AVG(S.marks) FROM Semester S WHERE S.studentId=?1")
+    @Query(value = "SELECT AVG(marks) FROM Semester WHERE student_id=?1")
     Double getCGPA(String studentId);
 
-    @Query("SELECT count(*) FROM Semester S WHERE S.subjectId=?1")
+    @Query("SELECT count(*) FROM Semester WHERE subject_id=?1")
     Integer getNumberOfStudentBySubject(String subjectId);
 
-    @Query("SELECT AVG(S.marks) FROM Semester S WHERE S.subjectId=?1")
+    @Query("SELECT AVG(marks) FROM Semester WHERE subject_id=?1")
     Double getAggregateBySubject(String subjectId);
 }

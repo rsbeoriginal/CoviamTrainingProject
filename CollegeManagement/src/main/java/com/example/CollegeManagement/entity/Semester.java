@@ -18,9 +18,18 @@ public class Semester {
 
     private int semesterNo;
 
-    private String studentId;
-    private String subjectId;
+//    private String studentId;
+//    private String subjectId;
+
     private Integer marks;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
 
     public String getSemesterId() {
         return semesterId;
@@ -38,21 +47,21 @@ public class Semester {
         this.semesterNo = semesterNo;
     }
 
-    public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getSubjectId() {
-        return subjectId;
-    }
-
-    public void setSubjectId(String subjectId) {
-        this.subjectId = subjectId;
-    }
+//    public String getStudentId() {
+//        return studentId;
+//    }
+//
+//    public void setStudentId(String studentId) {
+//        this.studentId = studentId;
+//    }
+//
+//    public String getSubjectId() {
+//        return subjectId;
+//    }
+//
+//    public void setSubjectId(String subjectId) {
+//        this.subjectId = subjectId;
+//    }
 
     public Integer getMarks() {
         return marks;
@@ -60,5 +69,25 @@ public class Semester {
 
     public void setMarks(Integer marks) {
         this.marks = marks;
+    }
+
+    public static String getTableName() {
+        return TABLE_NAME;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }
